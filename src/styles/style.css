@@ -51,12 +51,21 @@ body {
   align-items: center;
 }
 
-.label {
+.img-check-name,
+.img-check-cpf {
+  width: 20px;
+  position: absolute;
+  z-index: 1;
+  margin: 15px;
+  display: none;
+}
+
+label {
   text-align: center;
   font-weight: bold;
 }
 
-.input {
+input {
   border-radius: 10px;
   margin-top: 0.7rem;
   outline: none;

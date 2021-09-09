@@ -17,17 +17,19 @@
         <img class="img-user" src="./src/img/user.png" alt="user" />
       </div>
       <div class="right-container">
-        <label class="label" for="">
+        <label class="label-name" for="">
           Nome completo </br>
-          <input placeholder="Jose Carlos da Silva" class="input" type="text" />
+          <input placeholder="Jose Carlos da Silva" class="input-name" type="text"   />
+          <img src="./src/img/check.png" alt="check-image" class="img-check-name">
         </label>
-        <label class="label" for="">
+        <label class="label-cpf" for="">
           CPF </br>
-          <input placeholder="xxx.xxx.xxx-xx" class="input" type="text" />
+          <input placeholder="xxx.xxx.xxx-xx" class="input-cpf" type="text" pattern="(\d{3}\.?\d{3}\.?\d{3}-?\d{2})|(\d{2}\.?\d{3}\.?\d{3}/?\d{4}-?\d{2})" />
+          <img src="./src/img/check.png" alt="check-image" class="img-check-cpf">
         </label>
-        <label class="label" for="">
+        <label class="label-cpf-confirmation" class="label" for="">
           Confirmação de CPF </br>
-          <input placeholder="xxx.xxx.xxx-xx" class="input" type="text" />
+          <input placeholder="xxx.xxx.xxx-xx" class="input-cpf-confirmation" type="number" />
         </label>
       </div>
     </div>

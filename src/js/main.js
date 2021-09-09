@@ -1,38 +1,81 @@
-function isCpf(cpf) {
-  cpf = cpf.replace(/\D+/g, "");
-  let cpfArray = cpf.split(""); // Tirando pontos e barras
-  let cpfNumb = []; // Array contendo números
-  let j = 11; // Número de multiplicações do primeiro digito.
-  let k = 12; // Número de multiplicações do segundo digito.
+const inputName = document.querySelector(".input-name");
+const inputLabel = document.querySelector(".label-name");
+const inputCpf = document.querySelector(".input-cpf");
+const cpfLabel = document.querySelector(".label-cpf");
 
-  for (let i = 0; i < 9; i++) {
-    cpfNumb.push(parseInt(cpfArray[i]));
-  }
+function validationName() {
+  inputName.addEventListener("change", (event) => {
+    const img = document.querySelector(".img-check-name");
+    const { value } = event.target;
 
-  const firstDigit = cpfNumb.reduce((acc, numb) => {
-    j--;
-
-    return (acc = acc + numb * j);
-  }, 0);
-
-  let firstDigitVerification = 11 - (firstDigit % 11);
-
-  cpfNumb.push(firstDigitVerification);
-
-  const secondDigit = cpfNumb.reduce((acc, numb) => {
-    k--;
-
-    return (acc = acc + numb * k);
-  }, 0);
-
-  let secondDigitVerification = 11 - (secondDigit % 11);
-
-  if (firstDigitVerification > 9) firstDigitVerification = 0;
-  if (secondDigitVerification > 9) secondDigitVerification = 0;
-
-  cpfNumb.push(secondDigitVerification);
-
-  console.log(cpfNumb);
+    if (value !== "") {
+      img.style.display = "inline";
+    } else {
+      img.style.display = "none";
+    }
+  });
 }
 
-isCpf("486.709.078-60"); // 237
+function addDotsAndHifen(splittedLetters, cpfPattern) {
+  splittedLetters.forEach((item, index) => {
+    if (index === 2) {
+      cpfPattern.push(item);
+      cpfPattern.push(".");
+    } else if (index === 5) {
+      cpfPattern.push(item);
+      cpfPattern.push(".");
+    } else if (index === 8) {
+      cpfPattern.push(item);
+      cpfPattern.push("-");
+    } else {
+      if (index <= 10) {
+        cpfPattern.push(item);
+      }
+    }
+  });
+  console.log(cpfPattern.length);
+
+  return cpfPattern;
+}
+
+function validationInputCpf(value) {
+  if (!value || !value.length) {
+    return null;
+  }
+
+  let splittedLetters = value.split("");
+
+  splittedLetters = splittedLetters.reduce((acc, item) => {
+    if (item !== "." && item !== "-") {
+      acc.push(item);
+    }
+
+    return acc;
+  }, []);
+
+  const cpfPattern = addDotsAndHifen(splittedLetters, []);
+
+  const joinLetters = cpfPattern.join("");
+
+  return joinLetters;
+}
+
+function validationCpf() {
+  inputCpf.addEventListener("change", (event) => {
+    const img = document.querySelector(".img-check-cpf");
+    let { value } = event.target;
+
+    inputCpf.value = validationInputCpf(value);
+
+    if (value.length >= 14) {
+      img.style.display = "inline";
+    } else {
+      img.style.display = "none";
+    }
+  });
+}
+
+window.onload = function () {
+  validationName();
+  validationCpf();
+};
