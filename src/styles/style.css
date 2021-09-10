@@ -63,6 +63,15 @@ body {
   display: none;
 }
 
+.alertMessage {
+  opacity: 50%;
+  height: 1rem;
+  width: 20rem;
+  font-size: 0.8rem;
+  margin-top: 1rem;
+  display: none;
+}
+
 label {
   text-align: center;
   font-weight: bold;
