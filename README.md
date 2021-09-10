@@ -36,7 +36,7 @@
 
 ## 🔨 Funcionalidades
 
-- [x] O usuário pode incluir seu CPF em dois campos: o primeiro é o campo de _CPF_ e o outro o de _confirmação de CPF_, se o CPF for válido o _CPF Validaton_ irá informar.
+- [x] O usuário pode incluir seu CPF em dois campos: o primeiro é o campo de _CPF_ e o outro o de _confirmação de CPF_, se o CPF for válido o **CPF Validaton** irá informar.
 
 </br>
 
