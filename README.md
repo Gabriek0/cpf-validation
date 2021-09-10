@@ -53,4 +53,4 @@
 
 ## 📜 Licença
 
-- [![NPM](https://img.shields.io/github/license/Gabriek0/cpf-validaton)]()
+- [![NPM](https://img.shields.io/github/license/Gabriek0/cpf-validaton)](https://github.com/Gabriek0/cpf-validation/blob/main/LICENSE)
